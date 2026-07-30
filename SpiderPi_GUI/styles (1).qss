@@ -1,0 +1,242 @@
+/* ============================================================
+   styles.qss
+   Dark, industrial-HMI theme for the SpiderPi dashboard.
+
+   Palette matches the colours already hardcoded inline across the
+   panels (robot_panel.py, camera_widget.py, logger_panel.py, etc.)
+   so nothing clashes:
+     background : #14171b / #0d1117
+     panel      : #1c2128
+     border     : #30363d
+     text       : #c9d1d9
+     muted text : #8b949e
+     accent     : #58a6ff
+     success    : #3fb950
+     warn       : #d29922
+     danger     : #f85149
+   ============================================================ */
+
+QMainWindow, QWidget {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: "Segoe UI", "Inter", sans-serif;
+    font-size: 12px;
+}
+
+/* ---------- Group boxes / panels/cards ---------- */
+QGroupBox {
+    background-color: #1c2128;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    margin-top: 14px;
+    padding: 10px 8px 8px 8px;
+    font-weight: 600;
+    color: #58a6ff;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    left: 10px;
+    top: -2px;
+    padding: 0 6px;
+    background-color: #0d1117;
+    border-radius: 4px;
+}
+
+/* ---------- Labels ---------- */
+QLabel {
+    color: #c9d1d9;
+}
+
+/* ---------- Buttons (generic) ---------- */
+QPushButton {
+    background-color: #21262d;
+    color: #c9d1d9;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-weight: 500;
+}
+
+QPushButton:hover {
+    background-color: #30363d;
+    border: 1px solid #58a6ff;
+}
+
+QPushButton:pressed {
+    background-color: #1c2128;
+}
+
+QPushButton:disabled {
+    background-color: #161b22;
+    color: #6e7681;
+    border: 1px solid #21262d;
+}
+
+/* Primary action (Start Mission) */
+QPushButton#primaryButton {
+    background-color: #238636;
+    border: 1px solid #2ea043;
+    color: #ffffff;
+    font-weight: 700;
+}
+QPushButton#primaryButton:hover {
+    background-color: #2ea043;
+}
+QPushButton#primaryButton:disabled {
+    background-color: #163b23;
+    color: #6e7681;
+    border: 1px solid #21262d;
+}
+
+/* Neutral control buttons (Pause/Resume/Stop/Reset/Home/Reconnect/Clear) */
+QPushButton#controlButton {
+    background-color: #21262d;
+}
+
+/* Emergency stop -- unmistakably dangerous */
+QPushButton#emergencyButton {
+    background-color: #f85149;
+    color: #ffffff;
+    border: 1px solid #ff7b72;
+    font-weight: 800;
+    border-radius: 6px;
+}
+QPushButton#emergencyButton:hover {
+    background-color: #ff7b72;
+}
+QPushButton#emergencyButton:pressed {
+    background-color: #da3633;
+}
+
+/* ---------- Video / camera feed labels ---------- */
+QLabel#videoLabel {
+    background-color: #000000;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    color: #6e7681;
+    font-size: 13px;
+}
+
+/* ---------- Log console ---------- */
+QTextEdit#logConsole {
+    background-color: #010409;
+    color: #c9d1d9;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    font-family: "Cascadia Code", "Consolas", monospace;
+    font-size: 11.5px;
+}
+
+/* ---------- Lists (queue panel) ---------- */
+QListWidget {
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    color: #c9d1d9;
+    outline: none;
+}
+QListWidget::item {
+    padding: 4px 6px;
+    border-radius: 4px;
+}
+QListWidget::item:selected {
+    background-color: #1f6feb;
+    color: #ffffff;
+}
+QListWidget::item:hover {
+    background-color: #21262d;
+}
+
+/* ---------- Sliders (detection confidence) ---------- */
+QSlider::groove:horizontal {
+    height: 6px;
+    background: #30363d;
+    border-radius: 3px;
+}
+QSlider::handle:horizontal {
+    background: #58a6ff;
+    width: 16px;
+    height: 16px;
+    margin: -6px 0;
+    border-radius: 8px;
+}
+QSlider::sub-page:horizontal {
+    background: #58a6ff;
+    border-radius: 3px;
+}
+
+/* ---------- Progress bar (placement panel) ---------- */
+QProgressBar {
+    background-color: #21262d;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    text-align: center;
+    color: #c9d1d9;
+    height: 16px;
+}
+QProgressBar::chunk {
+    background-color: #3fb950;
+    border-radius: 6px;
+}
+
+/* ---------- Scroll area (right column) ---------- */
+QScrollArea {
+    border: none;
+    background: transparent;
+}
+
+/* ---------- Menu bar / toolbar / status bar ---------- */
+QMenuBar {
+    background-color: #161b22;
+    color: #c9d1d9;
+    border-bottom: 1px solid #30363d;
+}
+QMenuBar::item:selected {
+    background-color: #21262d;
+}
+QMenu {
+    background-color: #161b22;
+    color: #c9d1d9;
+    border: 1px solid #30363d;
+}
+QMenu::item:selected {
+    background-color: #1f6feb;
+    color: #ffffff;
+}
+
+QToolBar {
+    background-color: #161b22;
+    border-bottom: 1px solid #30363d;
+    spacing: 6px;
+    padding: 4px;
+}
+
+QStatusBar {
+    background-color: #161b22;
+    color: #8b949e;
+    border-top: 1px solid #30363d;
+}
+
+/* ---------- Form layout field labels ---------- */
+QFormLayout QLabel {
+    color: #8b949e;
+}
+
+/* ---------- Scrollbars ---------- */
+QScrollBar:vertical {
+    background: #0d1117;
+    width: 10px;
+}
+QScrollBar::handle:vertical {
+    background: #30363d;
+    border-radius: 5px;
+    min-height: 24px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #58a6ff;
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
